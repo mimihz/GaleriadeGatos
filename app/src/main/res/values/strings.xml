@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Galeria de Fotos</string>
+    <string name="gatoooo">Gato com Fome</string>
+    <string name="gato_dormindo">Gato Dormindo</string>
+    <string name="gato_assustado">Gato Assustado</string>
+    <string name="gato_bravo">Gato Bravo</string>
+    <string name="gato_curioso">Gato Curioso</string>
+    <string name="gato_bebendo_café">Gato Bebendo Café</string>
+    <string name="gatos_fofocando">Gatos Fofocando</string>
+    <string name="gatos_comendo_milho">Gato Comendo Milho</string>
+
+</resources>
