@@ -18,6 +18,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -47,7 +48,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
+@Preview
 @Composable
 fun AppGaleriaDeFotos(){
     LazyColumn( ){
@@ -56,6 +57,8 @@ fun AppGaleriaDeFotos(){
         }
     }
 }
+
+
 @Composable
 fun MolduraImagemDescricao(idImagemDescricao:IdImagemDescricao){
 
@@ -68,11 +71,11 @@ fun MolduraImagemDescricao(idImagemDescricao:IdImagemDescricao){
             Image(
                 painter = painterResource(id = idImagemDescricao.idImagem),
                 contentDescription = null,
-                contentScale = ContentScale.Inside,
+                contentScale = ContentScale.FillWidth,
                 modifier = Modifier
-                    .size(410.dp)
-                    .aspectRatio(10f / 9f)
-                    .padding(15.dp)
+                    .size(400.dp)
+                    .aspectRatio( 30f / 30f)
+                    .padding(30.dp)
             )
             Text(
                 text = stringResource(id = idImagemDescricao.idDescricao),
