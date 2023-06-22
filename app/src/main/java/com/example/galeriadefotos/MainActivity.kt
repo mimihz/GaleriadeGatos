@@ -3,7 +3,11 @@ package com.example.galeriadefotos
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,6 +21,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -62,10 +70,18 @@ fun AppGaleriaDeFotos(){
 @Composable
 fun MolduraImagemDescricao(idImagemDescricao:IdImagemDescricao){
 
+    var expandir by remember { mutableStateOf(false) }
+
     Card(
         elevation = CardDefaults.cardElevation(4.dp),
         modifier = Modifier
             .padding(7.dp)
+            .animateContentSize (
+                animationSpec = spring(
+                    dampingRatio = Spring.DampingRatioHighBouncy,
+                    stiffness = Spring.StiffnessMedium
+                )
+                    )
     ) {
         Column() {
             Image(
@@ -74,8 +90,11 @@ fun MolduraImagemDescricao(idImagemDescricao:IdImagemDescricao){
                 contentScale = ContentScale.FillWidth,
                 modifier = Modifier
                     .size(400.dp)
-                    .aspectRatio( 30f / 30f)
+                    .aspectRatio(30f / 30f)
                     .padding(30.dp)
+                    .clickable {
+                        expandir = !expandir
+                    }
             )
             Text(
                 text = stringResource(id = idImagemDescricao.idDescricao),
@@ -84,8 +103,14 @@ fun MolduraImagemDescricao(idImagemDescricao:IdImagemDescricao){
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Black,
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxSize(),
             )
+            if (expandir==true)
+                    Text(
+                        text = "ME DA COMIDA"
+                    )
+
+
         }
     }
 }

@@ -16,6 +16,8 @@ class FonteDeDados {
             IdImagemDescricao(R.drawable.gatofofocando,R.string.gatos_fofocando),
             IdImagemDescricao(R.drawable.gatobebendo,R.string.gato_bebendo_café),
             IdImagemDescricao(R.drawable.gatocomendomilho,R.string.gatos_comendo_milho),
+            IdImagemDescricao(R.drawable.gato_cabe_a_de_limao,R.string.gato_cabe_a_de_limao),
+            IdImagemDescricao(R.drawable.gato_de_laranja,R.string.gato_de_laranja),
         )
 
     }
